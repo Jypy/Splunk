@@ -97,9 +97,9 @@ def _config_dict(session_key, attempt=0):
         # list all credentials
         password_entities = entity.getEntities(['admin', 'passwords'], namespace='code42',
                                                owner='nobody', sessionKey=session_key)
-        config_console_entities = entity.getEntities(['code42', 'config', 'console'], namespace='code42',
+        config_console_entities = entity.getEntities(['code42', 'config_code42', 'console'], namespace='code42',
                                                      owner='nobody', sessionKey=session_key)
-        config_script_entities = entity.getEntities(['code42', 'config', 'script'], namespace='code42',
+        config_script_entities = entity.getEntities(['code42', 'config_code42', 'script'], namespace='code42',
                                                     owner='nobody', sessionKey=session_key)
     except Exception as exception:
         raise Exception("Could not get code42 credentials from splunk. Error: %s" % (str(exception)))
