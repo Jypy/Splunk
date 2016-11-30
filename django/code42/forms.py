@@ -198,7 +198,7 @@ class SetupForm(forms.Form):
     @staticmethod
     def _get_config(service, stanza='console'):
         """Get non-credential Code42 configuration settings entity"""
-        config_endpoint = client.Collection(service, 'code42/config/%s' % stanza)
+        config_endpoint = client.Collection(service, 'code42/config_code42/%s' % stanza)
         configs = config_endpoint.list()
 
         return configs[0] if len(configs) > 0 else None
@@ -206,7 +206,7 @@ class SetupForm(forms.Form):
     @classmethod
     def _set_config(cls, service, stanza='console', **kwargs):
         """Set non-credential Code42 configuration settings entity"""
-        config_endpoint = client.Collection(service, 'code42/config/%s' % stanza)
+        config_endpoint = client.Collection(service, 'code42/config_code42/%s' % stanza)
         config_endpoint.post(**kwargs)
 
     @staticmethod
